@@ -6,7 +6,7 @@ define nginx::site::settings($ensure=present, $site=undef, $settings=undef) {
     fail("Nginx::Site::Settings[site]:
       parameter must be defined")
   }
-  if ! $location {
+  if ! $settings {
     fail("Nginx::Site::Settings[settings]:
       parameter must be defined")
   }
