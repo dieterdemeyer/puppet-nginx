@@ -1,0 +1,3 @@
+<% if has_variable?("settings") %>
+<% settings.each do |option,value| %><%= option %> <%= value %>;<% end %>
+<% end %>
