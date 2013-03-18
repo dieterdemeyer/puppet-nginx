@@ -10,7 +10,7 @@ define nginx::site::settings($ensure=present, $site=undef, $settings=undef) {
     fail("Nginx::Site::Settings[settings]:
       parameter must be defined")
   }
-  if $name !~ /^[a-zA-Z][a-zA-Z0-9_-\.]*$/ {
+  if $name !~ /^[a-zA-Z][a-zA-Z0-9_\.-]*$/ {
     fail("Nginx::Site::Settings[${name}]:
       parameter must be alphanumeric")
   }
