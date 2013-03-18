@@ -19,9 +19,6 @@ define nginx::site($ensure='present', $port=undef, $root=undef) {
     'absent' : {
       file { "${nginx::params::nginx_sites_enabled}/${name}":
         ensure => absent,
-        onlyif => "/usr/bin/test -L ${nginx::params::nginx_sites_enabled}/${name} && \
-          /usr/bin/test ${nginx::params::nginx_sites_enabled}/$name -ef \
-          ${nginx::params::nginx_sites_available}/${name}",
         notify  => Service['nginx'],
         require => Package['nginx'],
       }
