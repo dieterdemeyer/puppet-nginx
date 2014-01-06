@@ -16,7 +16,7 @@ define nginx::site::settings($ensure=present, $site=undef, $settings=undef) {
   }
 
   file { "${nginx::params::nginx_sites_enabled}/${site}.d/${name}.conf":
-    ensure  => present,
+    ensure  => $ensure,
     content => template('nginx/settings.erb'),
     notify  => Service['nginx'],
   }
