@@ -33,7 +33,7 @@ location ~* ^.+\.(module|install|info|inc)$ {
 }
 
 location ~* ^/(cron|update)\.php {
-        include <%= scope.lookupvar('nginx::params::nginx_sites_enabled')%>/<%= name %>.d/fastcgi.inc;
+        include <%= scope.lookupvar('nginx::params::nginx_sites_enabled')%>/<%= @name %>.d/fastcgi.inc;
         fastcgi_read_timeout 300;
 }
 
@@ -42,6 +42,6 @@ location ~* ^/(admin|user).*$ {
 }
 
 location ~ \.php$ {
-        include <%= scope.lookupvar('nginx::params::nginx_sites_enabled')%>/<%= name %>.d/fastcgi.inc;
+        include <%= scope.lookupvar('nginx::params::nginx_sites_enabled')%>/<%= @name %>.d/fastcgi.inc;
         fastcgi_read_timeout 120;
 }
